@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16C48b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="C96-JY-u7o">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="UZf-KP-UP8">
+            <objects>
+                <viewController id="C96-JY-u7o" customClass="LoginViewController" customModule="NotifyMe_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cFa-7J-GgW"/>
+                        <viewControllerLayoutGuide type="bottom" id="PTO-TH-Pw4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xN7-hA-XOQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpP-t2-Say">
+                                <rect key="frame" x="124.33333333333331" y="70" width="165.33333333333337" height="165"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wpP-t2-Say" secondAttribute="height" multiplier="1:1" id="qnC-fo-sE8"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1r-0b-7sA">
+                                <rect key="frame" x="30" y="275" width="354" height="149"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvN-MZ-bRD" customClass="GCRView" customModule="NotifyMe_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="83"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sp-Rm-tzA" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="41"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="41" id="0gU-Sz-jQC"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Username"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="username.png"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qx-Lr-sPN" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="42" width="354" height="41"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="41" id="G2j-dm-Yr9"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="lock.png"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.90113420050761417" green="0.90113420050761417" blue="0.90113420050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="83" id="1sd-3A-E65"/>
+                                            <constraint firstItem="0sp-Rm-tzA" firstAttribute="leading" secondItem="RvN-MZ-bRD" secondAttribute="leading" id="DHz-s2-STg"/>
+                                            <constraint firstAttribute="trailing" secondItem="6qx-Lr-sPN" secondAttribute="trailing" id="Z35-G4-ySt"/>
+                                            <constraint firstAttribute="trailing" secondItem="0sp-Rm-tzA" secondAttribute="trailing" id="aCk-20-lc9"/>
+                                            <constraint firstAttribute="bottom" secondItem="6qx-Lr-sPN" secondAttribute="bottom" id="aEO-Mn-9li"/>
+                                            <constraint firstItem="6qx-Lr-sPN" firstAttribute="top" secondItem="0sp-Rm-tzA" secondAttribute="bottom" constant="1" id="dkT-HH-bI7"/>
+                                            <constraint firstItem="0sp-Rm-tzA" firstAttribute="top" secondItem="RvN-MZ-bRD" secondAttribute="top" id="qya-qs-0xG"/>
+                                            <constraint firstItem="6qx-Lr-sPN" firstAttribute="leading" secondItem="RvN-MZ-bRD" secondAttribute="leading" id="ymd-Af-cTp"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAX-Uy-7UG" customClass="GCRButton" customModule="NotifyMe_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="108" width="354" height="41"/>
+                                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="NML-Z4-jhV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="RvN-MZ-bRD" firstAttribute="leading" secondItem="m1r-0b-7sA" secondAttribute="leading" id="0JO-jf-fXc"/>
+                                    <constraint firstItem="RvN-MZ-bRD" firstAttribute="top" secondItem="m1r-0b-7sA" secondAttribute="top" id="B9k-cC-BDw"/>
+                                    <constraint firstItem="AAX-Uy-7UG" firstAttribute="top" secondItem="RvN-MZ-bRD" secondAttribute="bottom" constant="25" id="HEL-a7-sWe"/>
+                                    <constraint firstAttribute="bottom" secondItem="AAX-Uy-7UG" secondAttribute="bottom" id="Kr6-i7-IFC"/>
+                                    <constraint firstAttribute="trailing" secondItem="AAX-Uy-7UG" secondAttribute="trailing" id="b1f-G3-RBT"/>
+                                    <constraint firstItem="AAX-Uy-7UG" firstAttribute="leading" secondItem="m1r-0b-7sA" secondAttribute="leading" id="sSa-cn-GBF"/>
+                                    <constraint firstAttribute="trailing" secondItem="RvN-MZ-bRD" secondAttribute="trailing" id="xha-qH-u7Z"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.37254901959999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="m1r-0b-7sA" firstAttribute="top" secondItem="wpP-t2-Say" secondAttribute="bottom" constant="40" id="1zv-4B-I53"/>
+                            <constraint firstItem="wpP-t2-Say" firstAttribute="top" secondItem="cFa-7J-GgW" secondAttribute="bottom" constant="50" id="OXr-UP-WUR"/>
+                            <constraint firstItem="m1r-0b-7sA" firstAttribute="width" secondItem="wpP-t2-Say" secondAttribute="width" id="WGB-OV-MF1"/>
+                            <constraint firstAttribute="width" secondItem="wpP-t2-Say" secondAttribute="width" multiplier="2.5" id="ZuN-yT-nXg"/>
+                            <constraint firstAttribute="trailing" secondItem="m1r-0b-7sA" secondAttribute="trailing" priority="999" constant="30" id="dy6-jj-eAO"/>
+                            <constraint firstItem="wpP-t2-Say" firstAttribute="centerX" secondItem="xN7-hA-XOQ" secondAttribute="centerX" id="jH0-EF-DtA"/>
+                            <constraint firstItem="m1r-0b-7sA" firstAttribute="centerX" secondItem="xN7-hA-XOQ" secondAttribute="centerX" id="mo4-xM-1aV"/>
+                            <constraint firstItem="m1r-0b-7sA" firstAttribute="leading" secondItem="xN7-hA-XOQ" secondAttribute="leading" priority="999" constant="30" id="tcj-Fd-qVO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WGB-OV-MF1"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="WGB-OV-MF1"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="AAX-Uy-7UG" id="0VB-Yq-pAq"/>
+                        <outlet property="loginStuff" destination="m1r-0b-7sA" id="O3G-No-lGB"/>
+                        <outlet property="loginView" destination="RvN-MZ-bRD" id="HVz-ca-cjE"/>
+                        <outlet property="logoView" destination="wpP-t2-Say" id="JgZ-I9-bEQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fku-0C-OQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-946.39999999999998" y="-296.40179910044981"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NotifyMe_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7BV-QF-lKP">
+                                <rect key="frame" x="132" y="50" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="lBz-hp-g7i"/>
+                                    <constraint firstAttribute="height" constant="150" id="zq9-7q-haV"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyy-hI-NrM">
+                                <rect key="frame" x="0.0" y="250" width="414" height="478"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heA-6W-24n" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="17" width="354" height="41"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="BsU-tO-1LY"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="username.png"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Username"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldEditingBegan:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="bLj-wd-0jA"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jy8-9f-zSd" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="66" width="354" height="41"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="VE5-no-XFQ"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="mail.png"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Saq-Yg-rMh" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="115" width="354" height="41"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="gFk-xg-eGx"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="lock.png"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WYP-kT-1St" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="164" width="354" height="41"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="aXH-vn-Tlg"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="lock.png"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Confirm password"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3m3-dy-pym" customClass="GCRButton" customModule="NotifyMe_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="245" width="354" height="41"/>
+                                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="R5U-uE-w8F"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                        <state key="normal" title="Create account">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WYP-kT-1St" secondAttribute="trailing" constant="30" id="1JD-wf-hsf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Saq-Yg-rMh" secondAttribute="trailing" constant="30" id="1V5-1P-Ioy"/>
+                                    <constraint firstAttribute="trailing" secondItem="3m3-dy-pym" secondAttribute="trailing" constant="30" id="5oW-4q-WRX"/>
+                                    <constraint firstItem="jy8-9f-zSd" firstAttribute="top" secondItem="heA-6W-24n" secondAttribute="bottom" constant="8" id="8TX-Gp-hl5"/>
+                                    <constraint firstItem="heA-6W-24n" firstAttribute="leading" secondItem="vyy-hI-NrM" secondAttribute="leading" constant="30" id="9O7-1N-aN4"/>
+                                    <constraint firstItem="3m3-dy-pym" firstAttribute="top" secondItem="WYP-kT-1St" secondAttribute="bottom" constant="40" id="ALj-m2-e66"/>
+                                    <constraint firstAttribute="trailing" secondItem="jy8-9f-zSd" secondAttribute="trailing" constant="30" id="Ja2-Sp-avK"/>
+                                    <constraint firstItem="jy8-9f-zSd" firstAttribute="leading" secondItem="vyy-hI-NrM" secondAttribute="leading" constant="30" id="U8N-OL-hTB"/>
+                                    <constraint firstItem="WYP-kT-1St" firstAttribute="top" secondItem="Saq-Yg-rMh" secondAttribute="bottom" constant="8" id="VXY-yy-1z8"/>
+                                    <constraint firstItem="Saq-Yg-rMh" firstAttribute="leading" secondItem="vyy-hI-NrM" secondAttribute="leading" constant="30" id="XOJ-44-Xp4"/>
+                                    <constraint firstItem="WYP-kT-1St" firstAttribute="leading" secondItem="vyy-hI-NrM" secondAttribute="leading" constant="30" id="YHJ-ZA-H5R"/>
+                                    <constraint firstItem="heA-6W-24n" firstAttribute="top" secondItem="vyy-hI-NrM" secondAttribute="top" constant="17" id="YSG-Rk-bRV"/>
+                                    <constraint firstItem="Saq-Yg-rMh" firstAttribute="top" secondItem="jy8-9f-zSd" secondAttribute="bottom" constant="8" id="ad8-Bv-OHs"/>
+                                    <constraint firstAttribute="trailing" secondItem="heA-6W-24n" secondAttribute="trailing" constant="30" id="hwy-Th-1oG"/>
+                                    <constraint firstItem="3m3-dy-pym" firstAttribute="leading" secondItem="vyy-hI-NrM" secondAttribute="leading" constant="30" id="z66-Df-w6D"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.37254901960784315" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7BV-QF-lKP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3ee-3P-X9E"/>
+                            <constraint firstItem="7BV-QF-lKP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="KGI-lf-Cg4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vyy-hI-NrM" secondAttribute="bottom" constant="8" id="MZl-DL-0uC"/>
+                            <constraint firstItem="vyy-hI-NrM" firstAttribute="top" secondItem="7BV-QF-lKP" secondAttribute="bottom" constant="50" id="mwa-go-9aI"/>
+                            <constraint firstItem="vyy-hI-NrM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="o4j-KK-rtL"/>
+                            <constraint firstAttribute="trailing" secondItem="vyy-hI-NrM" secondAttribute="trailing" id="pYp-k0-U4V"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="WYP-kT-1St" id="Lvb-EK-EGt"/>
+                        <outlet property="createButton" destination="3m3-dy-pym" id="zhO-bd-uMZ"/>
+                        <outlet property="emailTextField" destination="jy8-9f-zSd" id="cl5-TD-ZiH"/>
+                        <outlet property="logoView" destination="7BV-QF-lKP" id="N6L-yI-cuy"/>
+                        <outlet property="passwordTextField" destination="Saq-Yg-rMh" id="biI-Lx-ajT"/>
+                        <outlet property="usernameTextField" destination="heA-6W-24n" id="Hz7-du-y8l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lock.png" width="388" height="500"/>
+        <image name="mail.png" width="500" height="376"/>
+        <image name="username.png" width="500" height="502"/>
+    </resources>
+</document>
