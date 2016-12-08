@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
         
         // Move the logo
         UIView.animate(withDuration: 1,
-                       delay: 0,
+                       delay: 0.5,
                        usingSpringWithDamping: 1.0,
                        initialSpringVelocity: 0.15,
                        options: .curveEaseInOut,
@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
         
         // Fade in login button
         UIView.animate(withDuration: 0.5,
-                       delay: 0.25,
+                       delay: 0.75,
                        usingSpringWithDamping: 1.0,
                        initialSpringVelocity: 0.15,
                        options: .curveLinear,
@@ -84,7 +84,7 @@ class LoginViewController: UIViewController {
         
         // Fade in view with usernmae and pword
         UIView.animate(withDuration: 0.5,
-                       delay: 0.5,
+                       delay: 1.0,
                        usingSpringWithDamping: 1.0,
                        initialSpringVelocity: 0.15,
                        options: .curveLinear,
@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
         }, completion: nil)
     }
     
-    // MARK: - Keyboard change methods
+    // MARK: - Keyboard methods
     
     func keyboardWillChange(notification:NSNotification)
     {
@@ -137,6 +137,13 @@ class LoginViewController: UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    // MARK: - Navigation
+    
+    @IBAction func createAccountButtonPushed(_ sender: Any) {
+        self.performSegue(withIdentifier: "SegueToCreateAccount", sender: self)
+    }
+    
     
 
     /*
