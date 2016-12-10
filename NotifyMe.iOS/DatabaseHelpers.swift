@@ -21,6 +21,16 @@ class Database {
         }
     }
     
+    func login(username: String, password: String, deviceID: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+        let postData = ["username" : username,
+                        "password" : password,
+                        "deviceID" : deviceID]
+        
+        makePHPRequest(post: postData, onPage: "Login.php") { (data, response, error) in
+            completionHandler(data, response, error)
+        }
+    }
+    
     @discardableResult
     func makePHPRequest(post: [String: String], onPage page: String, timeout: TimeInterval = 60, whenFinished: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) -> URLSessionDataTask {
         print("Function \(#function) and line number \(#line) in file \(#file)")

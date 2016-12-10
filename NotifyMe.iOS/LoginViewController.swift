@@ -17,6 +17,8 @@ class LoginViewController: UIViewController {
     
     // You know, the view with all the login stuff (username, pword, button)
     @IBOutlet weak var loginStuff: UIView!
+    @IBOutlet weak var usernameTextField: GCRTextField!
+    @IBOutlet weak var passwordTextField: GCRTextField!
     
     @IBOutlet weak var loginView: GCRView!
     @IBOutlet weak var loginButton: GCRButton!
@@ -158,6 +160,29 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Buttons
+    
+    @IBAction func loginButtonPushed(_ sender: Any) {
+        let defaults = UserDefaults()
+        let id = defaults.string(forKey: "DEVICEID") ?? ""
+        
+        Database().login(username: usernameTextField.text!, password: passwordTextField.text!, deviceID: id) { (data, response, error) in
+            var reply: String? = nil
+            
+            if data != nil {
+                reply = String(data: data!, encoding: .utf8)
+            }
+            
+            print(reply)
+            
+            if reply == "-1" {
+                // User has not verified their email
+            } else if reply == "-2" {
+                // User does not exist
+            } else {
+                // Logged in
+            }
+        }
+    }
     
     @IBAction func createAccountButtonPushed(_ sender: Any) {
         self.performSegue(withIdentifier: "SegueToCreateAccount", sender: self)

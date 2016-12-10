@@ -110,6 +110,9 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButtonPushed:" destination="C96-JY-u7o" eventType="touchUpInside" id="gaT-QO-NfV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -164,6 +167,8 @@
                         <outlet property="loginView" destination="RvN-MZ-bRD" id="HVz-ca-cjE"/>
                         <outlet property="logoImageView" destination="B0S-GP-rVP" id="PMx-mZ-y0G"/>
                         <outlet property="logoView" destination="wpP-t2-Say" id="JgZ-I9-bEQ"/>
+                        <outlet property="passwordTextField" destination="6qx-Lr-sPN" id="qVT-z9-ew2"/>
+                        <outlet property="usernameTextField" destination="0sp-Rm-tzA" id="nZA-KY-Jgn"/>
                         <segue destination="8bO-wN-KAP" kind="show" identifier="SegueToCreateAccount" id="E1r-Cm-bv4"/>
                     </connections>
                 </viewController>
