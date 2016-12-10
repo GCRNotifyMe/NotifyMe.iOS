@@ -40,6 +40,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sp-Rm-tzA" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="41"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="0gU-Sz-jQC"/>
                                                 </constraints>
@@ -54,6 +55,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qx-Lr-sPN" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="42" width="315" height="41"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="G2j-dm-Yr9"/>
                                                 </constraints>
@@ -66,7 +68,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.90113420050761417" green="0.90113420050761417" blue="0.90113420050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="83" id="1sd-3A-E65"/>
                                             <constraint firstItem="0sp-Rm-tzA" firstAttribute="leading" secondItem="RvN-MZ-bRD" secondAttribute="leading" id="DHz-s2-STg"/>
@@ -158,10 +160,10 @@
             </objects>
             <point key="canvasLocation" x="-946.39999999999998" y="-296.40179910044981"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Account View Controller-->
         <scene sceneID="cyw-2b-Kjx">
             <objects>
-                <viewController id="8bO-wN-KAP" sceneMemberID="viewController">
+                <viewController id="8bO-wN-KAP" customClass="CreateAccountViewController" customModule="NotifyMe_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QqI-JD-7Y6"/>
                         <viewControllerLayoutGuide type="bottom" id="orF-T8-N7T"/>
@@ -171,13 +173,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAI-0Z-nmn">
-                                <rect key="frame" x="124.5" y="28" width="126" height="24"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                <rect key="frame" x="114" y="45" width="148" height="27.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEX-Wx-tEO">
-                                <rect key="frame" x="26" y="142" width="323" height="277"/>
+                                <rect key="frame" x="26" y="142.5" width="323" height="304.5"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNr-qE-LW8" customClass="GCRView" customModule="NotifyMe_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="167"/>
@@ -185,12 +187,13 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qiw-gy-peY" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="323" height="41"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="B0D-C7-3bA"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="mail.png"/>
@@ -199,12 +202,13 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLj-ri-ZuT" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="42" width="323" height="41"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="j25-5C-2tE"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Username"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="username.png"/>
@@ -212,13 +216,14 @@
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RLm-Wq-8yx" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="84" width="323" height="41"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="9rC-Ep-iZ5"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="lock.png"/>
@@ -226,13 +231,14 @@
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAB-ww-rCH" customClass="GCRTextField" customModule="NotifyMe_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="126" width="323" height="41"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="U0H-an-Xay"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password (Again)"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="lock.png"/>
@@ -277,13 +283,25 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createButtonPushed:" destination="8bO-wN-KAP" eventType="touchUpInside" id="MlM-SI-CTs"/>
+                                        </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QD3-Ny-8AZ">
+                                        <rect key="frame" x="139.5" y="241" width="45" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0x-Mb-Nsm">
-                                        <rect key="frame" x="134.5" y="241" width="54" height="36"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <rect key="frame" x="139" y="272.5" width="44" height="32"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelButtonPushed:" destination="8bO-wN-KAP" eventType="touchUpInside" id="UuC-vf-SQC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -291,21 +309,23 @@
                                     <constraint firstAttribute="trailing" secondItem="vDn-Rg-zqn" secondAttribute="trailing" id="3rh-a7-s00"/>
                                     <constraint firstItem="vDn-Rg-zqn" firstAttribute="leading" secondItem="gEX-Wx-tEO" secondAttribute="leading" id="435-SE-qat"/>
                                     <constraint firstAttribute="trailing" secondItem="QNr-qE-LW8" secondAttribute="trailing" id="GSu-Nt-4fO"/>
+                                    <constraint firstItem="QD3-Ny-8AZ" firstAttribute="centerX" secondItem="gEX-Wx-tEO" secondAttribute="centerX" id="Lty-rF-l4T"/>
+                                    <constraint firstItem="QD3-Ny-8AZ" firstAttribute="top" secondItem="vDn-Rg-zqn" secondAttribute="bottom" constant="8" id="Rq3-uW-v3N"/>
+                                    <constraint firstItem="B0x-Mb-Nsm" firstAttribute="top" secondItem="QD3-Ny-8AZ" secondAttribute="bottom" constant="8" id="YZe-UC-970"/>
                                     <constraint firstItem="vDn-Rg-zqn" firstAttribute="top" secondItem="QNr-qE-LW8" secondAttribute="bottom" constant="25" id="azI-yr-Mqq"/>
                                     <constraint firstItem="QNr-qE-LW8" firstAttribute="leading" secondItem="gEX-Wx-tEO" secondAttribute="leading" id="bFA-I9-ByP"/>
                                     <constraint firstItem="B0x-Mb-Nsm" firstAttribute="centerX" secondItem="gEX-Wx-tEO" secondAttribute="centerX" id="eYe-8A-Lwv"/>
                                     <constraint firstAttribute="bottom" secondItem="B0x-Mb-Nsm" secondAttribute="bottom" id="mEK-U4-H7I"/>
-                                    <constraint firstItem="B0x-Mb-Nsm" firstAttribute="top" secondItem="vDn-Rg-zqn" secondAttribute="bottom" constant="8" id="pOD-Vi-Qtp"/>
                                     <constraint firstItem="QNr-qE-LW8" firstAttribute="top" secondItem="gEX-Wx-tEO" secondAttribute="top" id="w65-4y-mxs"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.050980392159999999" green="0.37254901959999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="gEX-Wx-tEO" firstAttribute="top" secondItem="yAI-0Z-nmn" secondAttribute="bottom" constant="90" id="Cgj-fE-Afs"/>
+                            <constraint firstItem="gEX-Wx-tEO" firstAttribute="top" secondItem="yAI-0Z-nmn" secondAttribute="bottom" constant="70" id="Cgj-fE-Afs"/>
                             <constraint firstItem="yAI-0Z-nmn" firstAttribute="centerX" secondItem="8i2-I1-LaT" secondAttribute="centerX" id="Kwk-Tm-bE9"/>
                             <constraint firstAttribute="width" secondItem="gEX-Wx-tEO" secondAttribute="width" multiplier="2.5" id="T78-yJ-6Pm"/>
-                            <constraint firstItem="yAI-0Z-nmn" firstAttribute="top" secondItem="QqI-JD-7Y6" secondAttribute="bottom" constant="8" id="aQd-Ux-MJd"/>
+                            <constraint firstItem="yAI-0Z-nmn" firstAttribute="top" secondItem="QqI-JD-7Y6" secondAttribute="bottom" constant="25" id="aQd-Ux-MJd"/>
                             <constraint firstItem="gEX-Wx-tEO" firstAttribute="centerX" secondItem="8i2-I1-LaT" secondAttribute="centerX" id="g4W-dY-s1c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gEX-Wx-tEO" secondAttribute="trailing" priority="999" constant="10" id="n3e-ak-2Bu"/>
                             <constraint firstItem="gEX-Wx-tEO" firstAttribute="leading" secondItem="8i2-I1-LaT" secondAttribute="leadingMargin" priority="999" constant="10" id="qkL-JP-3EF"/>
@@ -321,10 +341,22 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="B0x-Mb-Nsm" id="pve-YC-KhF"/>
+                        <outlet property="createAccountButton" destination="vDn-Rg-zqn" id="FGT-yL-85k"/>
+                        <outlet property="emailTextField" destination="qiw-gy-peY" id="S3m-nd-E8b"/>
+                        <outlet property="outputLabel" destination="QD3-Ny-8AZ" id="olS-ge-L52"/>
+                        <outlet property="passwordConfirmationTextField" destination="ZAB-ww-rCH" id="UZ1-aC-sxV"/>
+                        <outlet property="passwordTextField" destination="RLm-Wq-8yx" id="obz-TV-Hz4"/>
+                        <outlet property="textFieldsView" destination="QNr-qE-LW8" id="4DF-V6-Ef6"/>
+                        <outlet property="usernameTextField" destination="DLj-ri-ZuT" id="bx9-ij-r2D"/>
+                        <segue destination="Bnb-SD-jRb" kind="unwind" identifier="UnwindToLogin" unwindAction="unwindToLoginViewWithSegue:" id="I51-cE-vJD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1O-0g-V2E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Bnb-SD-jRb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1226.0869565217392" y="448.36956521739131"/>
+            <point key="canvasLocation" x="-1228" y="489"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

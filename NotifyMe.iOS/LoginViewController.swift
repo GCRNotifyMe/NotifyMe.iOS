@@ -138,10 +138,16 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-    // MARK: - Navigation
+    // MARK: - Buttons
     
     @IBAction func createAccountButtonPushed(_ sender: Any) {
         self.performSegue(withIdentifier: "SegueToCreateAccount", sender: self)
+    }
+    
+    // MARK: - Navigation
+    
+    @IBAction func unwindToLoginView(segue: UIStoryboardSegue) {
+        
     }
     
     

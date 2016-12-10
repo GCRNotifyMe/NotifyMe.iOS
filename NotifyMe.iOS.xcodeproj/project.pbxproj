@@ -22,6 +22,9 @@
 		7C7DB20F1DCA579700C1A485 /* NotifyMe_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DB20E1DCA579700C1A485 /* NotifyMe_iOSTests.swift */; };
 		7C7DB21A1DCA579700C1A485 /* NotifyMe_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DB2191DCA579700C1A485 /* NotifyMe_iOSUITests.swift */; };
 		7CCC81941DF8E10A00B9B4BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCC81931DF8E10A00B9B4BF /* LoginViewController.swift */; };
+		7CE0F6F91DF9F0F900979B7B /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F6F81DF9F0F900979B7B /* CreateAccountViewController.swift */; };
+		7CE0F6FB1DF9F86800979B7B /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */; };
+		7CE0F6FD1DF9FBF700979B7B /* DatabaseHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F6FC1DF9FBF700979B7B /* DatabaseHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		7C7DB2191DCA579700C1A485 /* NotifyMe_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyMe_iOSUITests.swift; sourceTree = "<group>"; };
 		7C7DB21B1DCA579700C1A485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CCC81931DF8E10A00B9B4BF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7CE0F6F81DF9F0F900979B7B /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
+		7CE0F6FC1DF9FBF700979B7B /* DatabaseHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,10 +122,13 @@
 				7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */,
 				7C7DB1F81DCA579700C1A485 /* ViewController.swift */,
 				7C7DB1FA1DCA579700C1A485 /* Main.storyboard */,
+				7CE0F6FC1DF9FBF700979B7B /* DatabaseHelpers.swift */,
+				7CE0F6F81DF9F0F900979B7B /* CreateAccountViewController.swift */,
 				7CCC81931DF8E10A00B9B4BF /* LoginViewController.swift */,
 				7C10659A1DCA8D5D00C72E08 /* GCRButton.swift */,
 				7C22737F1DF8D91000412676 /* GCRView.swift */,
 				7C1065901DCA842300C72E08 /* GCRTextField.swift */,
+				7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */,
 				7C1065921DCA860D00C72E08 /* username.png */,
 				7C1065961DCA8B8500C72E08 /* mail.png */,
 				7C1065981DCA8BF200C72E08 /* lock.png */,
@@ -293,7 +302,10 @@
 				7C10659B1DCA8D5D00C72E08 /* GCRButton.swift in Sources */,
 				7C2273801DF8D91000412676 /* GCRView.swift in Sources */,
 				7C7DB1FF1DCA579700C1A485 /* NotifyMe_iOS.xcdatamodeld in Sources */,
+				7CE0F6FD1DF9FBF700979B7B /* DatabaseHelpers.swift in Sources */,
+				7CE0F6F91DF9F0F900979B7B /* CreateAccountViewController.swift in Sources */,
 				7C7DB1F91DCA579700C1A485 /* ViewController.swift in Sources */,
+				7CE0F6FB1DF9F86800979B7B /* CGRectExtension.swift in Sources */,
 				7C1065911DCA842300C72E08 /* GCRTextField.swift in Sources */,
 				7C7DB1F71DCA579700C1A485 /* AppDelegate.swift in Sources */,
 			);
