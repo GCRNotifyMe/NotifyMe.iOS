@@ -25,9 +25,19 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0IU-jC-jD3">
                                 <rect key="frame" x="124.33333333333331" y="285.33333333333331" width="165.33333333333337" height="165.33333333333337"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Artboard 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="tH0-EQ-cgB">
+                                        <rect key="frame" x="28.666666666666671" y="27.666666666666686" width="110.00000000000001" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="tH0-EQ-cgB" secondAttribute="height" multiplier="1:1" id="sWR-Cn-bCy"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
+                                    <constraint firstItem="tH0-EQ-cgB" firstAttribute="centerY" secondItem="0IU-jC-jD3" secondAttribute="centerY" id="ICQ-XO-5bF"/>
+                                    <constraint firstAttribute="width" secondItem="tH0-EQ-cgB" secondAttribute="width" multiplier="1.5" id="loG-xY-YGe"/>
                                     <constraint firstAttribute="width" secondItem="0IU-jC-jD3" secondAttribute="height" multiplier="1:1" id="mnu-dG-Hq3"/>
+                                    <constraint firstItem="tH0-EQ-cgB" firstAttribute="centerX" secondItem="0IU-jC-jD3" secondAttribute="centerX" id="u3d-sO-fe5"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -41,7 +51,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="374.18478260869568"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Artboard 2.png" width="1025" height="1024"/>
+    </resources>
 </document>

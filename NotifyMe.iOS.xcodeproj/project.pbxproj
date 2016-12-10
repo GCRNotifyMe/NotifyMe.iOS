@@ -25,6 +25,8 @@
 		7CE0F6F91DF9F0F900979B7B /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F6F81DF9F0F900979B7B /* CreateAccountViewController.swift */; };
 		7CE0F6FB1DF9F86800979B7B /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */; };
 		7CE0F6FD1DF9FBF700979B7B /* DatabaseHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F6FC1DF9FBF700979B7B /* DatabaseHelpers.swift */; };
+		7CE0F6FF1DFB86A300979B7B /* Artboard 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE0F6FE1DFB86A300979B7B /* Artboard 2.png */; };
+		7CE0F7011DFB906200979B7B /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F7001DFB906200979B7B /* CALayerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		7CE0F6F81DF9F0F900979B7B /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
 		7CE0F6FC1DF9FBF700979B7B /* DatabaseHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelpers.swift; sourceTree = "<group>"; };
+		7CE0F6FE1DFB86A300979B7B /* Artboard 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 2.png"; sourceTree = "<group>"; };
+		7CE0F7001DFB906200979B7B /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +133,11 @@
 				7C22737F1DF8D91000412676 /* GCRView.swift */,
 				7C1065901DCA842300C72E08 /* GCRTextField.swift */,
 				7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */,
+				7CE0F7001DFB906200979B7B /* CALayerExtension.swift */,
 				7C1065921DCA860D00C72E08 /* username.png */,
 				7C1065961DCA8B8500C72E08 /* mail.png */,
 				7C1065981DCA8BF200C72E08 /* lock.png */,
+				7CE0F6FE1DFB86A300979B7B /* Artboard 2.png */,
 				7C7DB2001DCA579700C1A485 /* Assets.xcassets */,
 				7C7DB2021DCA579700C1A485 /* LaunchScreen.storyboard */,
 				7C7DB2051DCA579700C1A485 /* Info.plist */,
@@ -272,6 +278,7 @@
 				7C1065971DCA8B8500C72E08 /* mail.png in Resources */,
 				7C1065991DCA8BF200C72E08 /* lock.png in Resources */,
 				7C7DB2011DCA579700C1A485 /* Assets.xcassets in Resources */,
+				7CE0F6FF1DFB86A300979B7B /* Artboard 2.png in Resources */,
 				7C7DB1FC1DCA579700C1A485 /* Main.storyboard in Resources */,
 				7C1065931DCA860D00C72E08 /* username.png in Resources */,
 			);
@@ -308,6 +315,7 @@
 				7CE0F6FB1DF9F86800979B7B /* CGRectExtension.swift in Sources */,
 				7C1065911DCA842300C72E08 /* GCRTextField.swift in Sources */,
 				7C7DB1F71DCA579700C1A485 /* AppDelegate.swift in Sources */,
+				7CE0F7011DFB906200979B7B /* CALayerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

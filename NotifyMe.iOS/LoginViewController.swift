@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     var firstLoad = true
 
     @IBOutlet weak var logoView: UIView!
+    @IBOutlet weak var logoImageView: UIImageView!
     
     // You know, the view with all the login stuff (username, pword, button)
     @IBOutlet weak var loginStuff: UIView!
@@ -20,8 +21,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginView: GCRView!
     @IBOutlet weak var loginButton: GCRButton!
     
-    var logoViewInitialSize: CGSize!
-    var logoViewInitialOrigin: CGPoint!
+    // Also used with shrinking the logo
+//    var logoViewInitialSize: CGSize!
+//    var logoViewInitialOrigin: CGPoint!
+//    var logoImageInitialSize: CGSize!
     var loginStuffInitialOrigin: CGPoint!
     
     override func viewDidLoad() {
@@ -51,8 +54,10 @@ class LoginViewController: UIViewController {
             return
         }
         
-        logoViewInitialSize = logoView.frame.size
-        logoViewInitialOrigin = logoView.frame.origin
+        // Setting values needed for the shrinking and expanding of the logo. Not used anymore
+//        logoViewInitialSize = logoView.frame.size
+//        logoViewInitialOrigin = logoView.frame.origin
+//        logoImageInitialSize = logoImageView.frame.size
         loginStuffInitialOrigin = loginStuff.frame.origin
         
         firstLoad = false
@@ -115,8 +120,15 @@ class LoginViewController: UIViewController {
                        options: .curveLinear,
                        animations: {
                         self.loginStuff.frame.origin.y = useableSize/2 - self.loginStuff.frame.height/2
-                        self.logoView.frame.size = CGSize(width: 0, height: 0)
-                        self.logoView.frame.origin.x = self.view.frame.midX
+                        
+                        // This origionally shrank the size of the logo, but fading is so much easier and looks better
+//                        self.logoView.frame.size = CGSize(width: 0, height: 0)
+//                        self.logoView.frame.origin.x = self.view.frame.midX
+//                        
+//                        self.logoImageView.frame.size = CGSize(width: 0, height: 0)
+//                        self.logoImageView.center = self.logoView.frame.centerPoint
+                        
+                        self.logoImageView.alpha = 0
         }, completion: nil)
     }
     
@@ -129,8 +141,15 @@ class LoginViewController: UIViewController {
         
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.15, options: .curveLinear, animations: { 
             self.loginStuff.frame.origin = self.loginStuffInitialOrigin
-            self.logoView.frame.size = self.logoViewInitialSize
-            self.logoView.frame.origin = self.logoViewInitialOrigin
+            
+            // This un-shrank the logo. See above
+//            self.logoView.frame.size = self.logoViewInitialSize
+//            self.logoView.frame.origin = self.logoViewInitialOrigin
+//            
+//            self.logoImageView.frame.size = self.logoImageInitialSize
+//            self.logoImageView.center = self.logoView.frame.centerPoint
+            
+            self.logoImageView.alpha = 1
         }, completion: nil)
     }
     

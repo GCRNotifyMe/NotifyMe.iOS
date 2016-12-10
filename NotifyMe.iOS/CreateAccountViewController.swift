@@ -63,6 +63,8 @@ class CreateAccountViewController: UIViewController {
         }
         
         if let error = errorText {
+            self.textFieldsView.layer.shake(duration: 1)
+            
             // Set ouput label attributes
             self.outputLabel.numberOfLines = 0
             self.outputLabel.text = error
@@ -112,6 +114,8 @@ class CreateAccountViewController: UIViewController {
                                         reply = String(data: data!, encoding: .utf8)
                                     }
                                     
+                                    print(reply)
+                                    
                                     // Correctly made account
                                     if reply == "0" {
                                         DispatchQueue.main.async {
@@ -138,6 +142,8 @@ class CreateAccountViewController: UIViewController {
                                     }
                                     
                                     DispatchQueue.main.async {
+                                        self.textFieldsView.layer.shake(duration: 1)
+                                        
                                         // Set ouput label attributes
                                         self.outputLabel.numberOfLines = 0
                                         self.outputLabel.text = errorText
