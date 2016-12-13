@@ -14,6 +14,9 @@
 		7C10659B1DCA8D5D00C72E08 /* GCRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C10659A1DCA8D5D00C72E08 /* GCRButton.swift */; };
 		7C2273801DF8D91000412676 /* GCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22737F1DF8D91000412676 /* GCRView.swift */; };
 		7C69ED3C1DFFBCBB004B11F1 /* id card.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C69ED3B1DFFBCBB004B11F1 /* id card.png */; };
+		7C69ED3F1E00B0AE004B11F1 /* EasyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69ED3D1E00B0AE004B11F1 /* EasyTipView.swift */; };
+		7C69ED401E00B0AE004B11F1 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69ED3E1E00B0AE004B11F1 /* UIKitExtensions.swift */; };
+		7C69ED431E00B1ED004B11F1 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69ED421E00B1ED004B11F1 /* UIColorExtension.swift */; };
 		7C7DB1F71DCA579700C1A485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */; };
 		7C7DB1F91DCA579700C1A485 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DB1F81DCA579700C1A485 /* ViewController.swift */; };
 		7C7DB1FC1DCA579700C1A485 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7DB1FA1DCA579700C1A485 /* Main.storyboard */; };
@@ -55,6 +58,9 @@
 		7C10659A1DCA8D5D00C72E08 /* GCRButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCRButton.swift; sourceTree = "<group>"; };
 		7C22737F1DF8D91000412676 /* GCRView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCRView.swift; sourceTree = "<group>"; };
 		7C69ED3B1DFFBCBB004B11F1 /* id card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "id card.png"; sourceTree = "<group>"; };
+		7C69ED3D1E00B0AE004B11F1 /* EasyTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyTipView.swift; sourceTree = "<group>"; };
+		7C69ED3E1E00B0AE004B11F1 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		7C69ED421E00B1ED004B11F1 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		7C7DB1F31DCA579700C1A485 /* NotifyMe.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotifyMe.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C7DB1F81DCA579700C1A485 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C69ED411E00B0B8004B11F1 /* EasyTipView */ = {
+			isa = PBXGroup;
+			children = (
+				7C69ED3D1E00B0AE004B11F1 /* EasyTipView.swift */,
+				7C69ED3E1E00B0AE004B11F1 /* UIKitExtensions.swift */,
+			);
+			name = EasyTipView;
+			sourceTree = "<group>";
+		};
 		7C7DB1EA1DCA579700C1A485 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +151,8 @@
 				7C1065901DCA842300C72E08 /* GCRTextField.swift */,
 				7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */,
 				7CE0F7001DFB906200979B7B /* CALayerExtension.swift */,
+				7C69ED421E00B1ED004B11F1 /* UIColorExtension.swift */,
+				7C69ED411E00B0B8004B11F1 /* EasyTipView */,
 				7C69ED3B1DFFBCBB004B11F1 /* id card.png */,
 				7C1065921DCA860D00C72E08 /* username.png */,
 				7C1065961DCA8B8500C72E08 /* mail.png */,
@@ -310,12 +327,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CCC81941DF8E10A00B9B4BF /* LoginViewController.swift in Sources */,
+				7C69ED431E00B1ED004B11F1 /* UIColorExtension.swift in Sources */,
 				7C10659B1DCA8D5D00C72E08 /* GCRButton.swift in Sources */,
+				7C69ED3F1E00B0AE004B11F1 /* EasyTipView.swift in Sources */,
 				7C2273801DF8D91000412676 /* GCRView.swift in Sources */,
 				7C7DB1FF1DCA579700C1A485 /* NotifyMe_iOS.xcdatamodeld in Sources */,
 				7CE0F6FD1DF9FBF700979B7B /* DatabaseHelpers.swift in Sources */,
 				7CE0F6F91DF9F0F900979B7B /* CreateAccountViewController.swift in Sources */,
 				7C7DB1F91DCA579700C1A485 /* ViewController.swift in Sources */,
+				7C69ED401E00B0AE004B11F1 /* UIKitExtensions.swift in Sources */,
 				7CE0F6FB1DF9F86800979B7B /* CGRectExtension.swift in Sources */,
 				7C1065911DCA842300C72E08 /* GCRTextField.swift in Sources */,
 				7C7DB1F71DCA579700C1A485 /* AppDelegate.swift in Sources */,

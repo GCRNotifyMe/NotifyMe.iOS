@@ -26,6 +26,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginViewRightConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginButton: GCRButton!
     
+    @IBOutlet weak var createAccountButton: UIButton!
+    
+    var defaultEasyTip: EasyTipView?
     // Also used with shrinking the logo
 //    var logoViewInitialSize: CGSize!
 //    var logoViewInitialOrigin: CGPoint!
@@ -42,7 +45,7 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
         // Dismiss the keyboard on tap
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
         self.view.addGestureRecognizer(recognizer)
         
         UIApplication.shared.statusBarStyle = .lightContent
@@ -217,27 +220,65 @@ class LoginViewController: UIViewController {
                 if items.count == 1 {
                     // Display a field to enter the device name
                     DispatchQueue.main.async {
+                        self.createAccountButton.alpha = 0
+                        self.createAccountButton.isUserInteractionEnabled = false
+                        
                         var origin = self.loginView.frame.origin
                         origin.x += self.view.frame.width
                         
-                        let size = CGSize(width: self.loginView.frame.width, height: 41)
+                        let size = self.loginView.frame.size
                         
-                        let textField = GCRTextField(frame: CGRect(origin: origin, size: size))
+                        let nameView = UIView(frame: CGRect(origin: origin, size: size))
+                        
+                        let textField = GCRTextField(frame: CGRect(x: 0, y: 0, width: nameView.frame.width, height: 41))
                         textField.backgroundColor = UIColor.white
                         textField.leftImage = UIImage(named: "id card.png")!
                         textField.cornerRadius = 10
                         textField.placeholder = "Give this device a name"
                         textField.clipsToBounds = true
-                        self.loginStuff.addSubview(textField)
                         
-                        self.loginButton.setTitle("Name", for: [])
+                        nameView.addSubview(textField)
                         
-                        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
+                        let defaultSwitch = UISwitch()
+                        defaultSwitch.frame.origin.x = nameView.frame.width - defaultSwitch.frame.width
+                        defaultSwitch.frame.origin.y = nameView.frame.height - defaultSwitch.frame.height
+                        defaultSwitch.isOn = false
+                        
+                        nameView.addSubview(defaultSwitch)
+                        
+                        let defaultLabel = UILabel()
+                        defaultLabel.font = UIFont(name: "Avenir Next", size: 17)!
+                        defaultLabel.textColor = .white
+                        defaultLabel.text = "Default device:"
+                        defaultLabel.sizeToFit()
+                        defaultLabel.center = defaultSwitch.center
+                        defaultLabel.frame.origin.x = defaultSwitch.frame.origin.x - 8 - defaultLabel.frame.width
+                        
+                        nameView.addSubview(defaultLabel)
+                        
+                        // Add an image for help about what the default device(s) are
+                        // Should provide a popup text view to display the help
+                        let questionImage = UIButton()
+                        questionImage.frame.size = CGSize(width: 20, height: 20)
+                        questionImage.center.y = defaultSwitch.center.y
+                        questionImage.frame.origin.x = defaultLabel.frame.origin.x - 8 - questionImage.frame.width
+                        
+                        questionImage.backgroundColor = .red
+                        
+                        questionImage.addTarget(self, action: #selector(self.showDefaultDeviceHelp(_:)), for: .touchUpInside)
+                        
+                        nameView.addSubview(questionImage)
+                        
+                        self.loginStuff.addSubview(nameView)
+                        
+                        self.loginButton.setTitle("Lets go!", for: [])
+                        
+                        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
                             self.loginViewLeftConstraint.constant -= self.view.frame.width
                             self.loginViewRightConstraint.constant += self.view.frame.width
                             self.view.layoutIfNeeded()
                             
-                            textField.frame.origin.x -= self.view.frame.width
+                            nameView.frame.origin.x -= self.view.frame.width
                         }, completion: { (completed) in
                             self.loginView.alpha = 0
                         })
@@ -252,6 +293,30 @@ class LoginViewController: UIViewController {
     
     @IBAction func createAccountButtonPushed(_ sender: Any) {
         self.performSegue(withIdentifier: "SegueToCreateAccount", sender: self)
+    }
+    
+    func showDefaultDeviceHelp(_ button: UIButton) {
+        defaultEasyTip?.dismiss()
+        
+        var preferences = EasyTipView.Preferences()
+        preferences.drawing.cornerRadius = 10
+        preferences.drawing.backgroundColor = UIColor(netHex: 0xc6c5c5)
+        preferences.drawing.borderColor = UIColor(netHex: 0xb8c4bb)
+        preferences.drawing.borderWidth = 1
+        preferences.drawing.font = UIFont(name: "Avenir Next", size: 17)!
+        
+        defaultEasyTip = EasyTipView(text: "All defualt devices on an account recieve messages when no specific device is specified.",
+                                     preferences: preferences,
+                                     delegate: nil)
+        
+        defaultEasyTip?.show(animated: true, forView: button)//, withinSuperview: self.view)
+        
+//        EasyTipView.show(aimated: true, forView: gesture, withinSuperview: self.view, text: "Testing!", preferences: preferences, delegate: nil)
+    }
+    
+    func backgroundTap() {
+        dismissKeyboard()
+        defaultEasyTip?.dismiss()
     }
     
     // MARK: - Navigation

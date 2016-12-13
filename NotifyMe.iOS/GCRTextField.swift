@@ -44,6 +44,10 @@ class GCRTextField: UITextField {
                 return
             }
             
+            let leftImageBuffer = UIView(frame: CGRect(x: 0,
+                                                       y: 0,
+                                                       width: 50,
+                                                       height: 41))
             let leftImageContainer = UIView(frame: CGRect(x: 0,
                                                       y: 0,
                                                       width: 41,
@@ -57,8 +61,10 @@ class GCRTextField: UITextField {
             leftImageView.contentMode = .scaleAspectFit
             leftImageContainer.addSubview(leftImageView)
             leftImageContainer.backgroundColor = UIColor(white: 0.9, alpha: 1)
+            leftImageBuffer.addSubview(leftImageContainer)
+            leftImageBuffer.backgroundColor = .clear
             self.leftViewMode = UITextFieldViewMode.always
-            self.leftView = leftImageContainer
+            self.leftView = leftImageBuffer
         }
     }
 

@@ -163,6 +163,7 @@
                     </view>
                     <connections>
                         <outlet property="centerLayoutConstraint" destination="PTs-EL-KcO" id="B5Y-9E-Tzq"/>
+                        <outlet property="createAccountButton" destination="xKP-ea-cgJ" id="wGa-1m-W44"/>
                         <outlet property="loginButton" destination="AAX-Uy-7UG" id="0VB-Yq-pAq"/>
                         <outlet property="loginStuff" destination="m1r-0b-7sA" id="O3G-No-lGB"/>
                         <outlet property="loginView" destination="RvN-MZ-bRD" id="HVz-ca-cjE"/>
