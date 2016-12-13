@@ -13,6 +13,7 @@
 		7C1065991DCA8BF200C72E08 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C1065981DCA8BF200C72E08 /* lock.png */; };
 		7C10659B1DCA8D5D00C72E08 /* GCRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C10659A1DCA8D5D00C72E08 /* GCRButton.swift */; };
 		7C2273801DF8D91000412676 /* GCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22737F1DF8D91000412676 /* GCRView.swift */; };
+		7C69ED3C1DFFBCBB004B11F1 /* id card.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C69ED3B1DFFBCBB004B11F1 /* id card.png */; };
 		7C7DB1F71DCA579700C1A485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */; };
 		7C7DB1F91DCA579700C1A485 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DB1F81DCA579700C1A485 /* ViewController.swift */; };
 		7C7DB1FC1DCA579700C1A485 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7DB1FA1DCA579700C1A485 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		7C1065981DCA8BF200C72E08 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		7C10659A1DCA8D5D00C72E08 /* GCRButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCRButton.swift; sourceTree = "<group>"; };
 		7C22737F1DF8D91000412676 /* GCRView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCRView.swift; sourceTree = "<group>"; };
+		7C69ED3B1DFFBCBB004B11F1 /* id card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "id card.png"; sourceTree = "<group>"; };
 		7C7DB1F31DCA579700C1A485 /* NotifyMe.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotifyMe.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C7DB1F81DCA579700C1A485 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				7C1065901DCA842300C72E08 /* GCRTextField.swift */,
 				7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */,
 				7CE0F7001DFB906200979B7B /* CALayerExtension.swift */,
+				7C69ED3B1DFFBCBB004B11F1 /* id card.png */,
 				7C1065921DCA860D00C72E08 /* username.png */,
 				7C1065961DCA8B8500C72E08 /* mail.png */,
 				7C1065981DCA8BF200C72E08 /* lock.png */,
@@ -279,6 +282,7 @@
 				7C1065991DCA8BF200C72E08 /* lock.png in Resources */,
 				7C7DB2011DCA579700C1A485 /* Assets.xcassets in Resources */,
 				7CE0F6FF1DFB86A300979B7B /* Artboard 2.png in Resources */,
+				7C69ED3C1DFFBCBB004B11F1 /* id card.png in Resources */,
 				7C7DB1FC1DCA579700C1A485 /* Main.storyboard in Resources */,
 				7C1065931DCA860D00C72E08 /* username.png in Resources */,
 			);

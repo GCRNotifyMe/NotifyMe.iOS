@@ -19,8 +19,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginStuff: UIView!
     @IBOutlet weak var usernameTextField: GCRTextField!
     @IBOutlet weak var passwordTextField: GCRTextField!
+    @IBOutlet weak var centerLayoutConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var loginView: GCRView!
+    @IBOutlet weak var loginViewLeftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loginViewRightConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginButton: GCRButton!
     
     // Also used with shrinking the logo
@@ -111,9 +114,13 @@ class LoginViewController: UIViewController {
         let keyboardRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keyboardRectangle.height
         
+        print(self)
+        
         let duration = Double(userInfo.value(forKey: UIKeyboardAnimationDurationUserInfoKey) as? NSNumber ?? 0.5)
         
-        let useableSize = self.view.frame.height - keyboardHeight
+//        let useableSize = self.view.frame.height - keyboardHeight
+        
+        self.centerLayoutConstraint.constant = (keyboardHeight / 2) * -1
         
         UIView.animate(withDuration: duration,
                        delay: 0,
@@ -121,7 +128,7 @@ class LoginViewController: UIViewController {
                        initialSpringVelocity: 0.15,
                        options: .curveLinear,
                        animations: {
-                        self.loginStuff.frame.origin.y = useableSize/2 - self.loginStuff.frame.height/2
+//                        self.loginStuff.frame.origin.y = useableSize/2 - self.loginStuff.frame.height/2
                         
                         // This origionally shrank the size of the logo, but fading is so much easier and looks better
 //                        self.logoView.frame.size = CGSize(width: 0, height: 0)
@@ -131,6 +138,8 @@ class LoginViewController: UIViewController {
 //                        self.logoImageView.center = self.logoView.frame.centerPoint
                         
                         self.logoImageView.alpha = 0
+                        
+                        self.view.layoutIfNeeded()
         }, completion: nil)
     }
     
@@ -141,8 +150,10 @@ class LoginViewController: UIViewController {
         let userInfo:NSDictionary = notification.userInfo! as NSDictionary
         let duration = Double(userInfo.value(forKey: UIKeyboardAnimationDurationUserInfoKey) as? NSNumber ?? 0.5)
         
+        self.centerLayoutConstraint.constant = 0
+        
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.15, options: .curveLinear, animations: { 
-            self.loginStuff.frame.origin = self.loginStuffInitialOrigin
+//            self.loginStuff.frame.origin = self.loginStuffInitialOrigin
             
             // This un-shrank the logo. See above
 //            self.logoView.frame.size = self.logoViewInitialSize
@@ -152,6 +163,8 @@ class LoginViewController: UIViewController {
 //            self.logoImageView.center = self.logoView.frame.centerPoint
             
             self.logoImageView.alpha = 1
+            
+            self.view.layoutIfNeeded()
         }, completion: nil)
     }
     
@@ -165,7 +178,24 @@ class LoginViewController: UIViewController {
         let defaults = UserDefaults()
         let id = defaults.string(forKey: "DEVICEID") ?? ""
         
+        dismissKeyboard()
+        
+        loginButton.setTitle("", for: [])
+        let activity = UIActivityIndicatorView()
+        activity.startAnimating()
+        activity.center = loginButton.frame.centerPoint
+        loginButton.addSubview(activity)
+        
+        self.view.isUserInteractionEnabled = false
+        
         Database().login(username: usernameTextField.text!, password: passwordTextField.text!, deviceID: id) { (data, response, error) in
+            DispatchQueue.main.async {
+                self.view.isUserInteractionEnabled = true
+                
+                activity.removeFromSuperview()
+                self.loginButton.setTitle("Login", for: [])
+            }
+            
             var reply: String? = nil
             
             if data != nil {
@@ -180,6 +210,42 @@ class LoginViewController: UIViewController {
                 // User does not exist
             } else {
                 // Logged in
+                
+                // Parse the return. Multiple lines means we have a device name for this device.
+                let items = reply!.components(separatedBy: "\n")
+                
+                if items.count == 1 {
+                    // Display a field to enter the device name
+                    DispatchQueue.main.async {
+                        var origin = self.loginView.frame.origin
+                        origin.x += self.view.frame.width
+                        
+                        let size = CGSize(width: self.loginView.frame.width, height: 41)
+                        
+                        let textField = GCRTextField(frame: CGRect(origin: origin, size: size))
+                        textField.backgroundColor = UIColor.white
+                        textField.leftImage = UIImage(named: "id card.png")!
+                        textField.cornerRadius = 10
+                        textField.placeholder = "Give this device a name"
+                        textField.clipsToBounds = true
+                        self.loginStuff.addSubview(textField)
+                        
+                        self.loginButton.setTitle("Name", for: [])
+                        
+                        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
+                            self.loginViewLeftConstraint.constant -= self.view.frame.width
+                            self.loginViewRightConstraint.constant += self.view.frame.width
+                            self.view.layoutIfNeeded()
+                            
+                            textField.frame.origin.x -= self.view.frame.width
+                        }, completion: { (completed) in
+                            self.loginView.alpha = 0
+                        })
+                    }
+                    
+                } else {
+                    // We already have a device name!
+                }
             }
         }
     }

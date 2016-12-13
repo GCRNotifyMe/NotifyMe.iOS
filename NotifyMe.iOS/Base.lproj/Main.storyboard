@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16C48b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="C96-JY-u7o">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16C63a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="C96-JY-u7o">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,7 +42,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1r-0b-7sA">
-                                <rect key="frame" x="30" y="260.5" width="315" height="149"/>
+                                <rect key="frame" x="30" y="259" width="315" height="149"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvN-MZ-bRD" customClass="GCRView" customModule="NotifyMe_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="83"/>
@@ -139,9 +139,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.050980392159999999" green="0.37254901959999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="m1r-0b-7sA" firstAttribute="top" secondItem="wpP-t2-Say" secondAttribute="bottom" constant="40" id="1zv-4B-I53"/>
                             <constraint firstItem="xKP-ea-cgJ" firstAttribute="leading" secondItem="xN7-hA-XOQ" secondAttribute="leadingMargin" id="8kn-hU-VgR"/>
                             <constraint firstItem="wpP-t2-Say" firstAttribute="top" secondItem="cFa-7J-GgW" secondAttribute="bottom" constant="50" id="OXr-UP-WUR"/>
+                            <constraint firstItem="m1r-0b-7sA" firstAttribute="centerY" secondItem="xN7-hA-XOQ" secondAttribute="centerY" id="PTs-EL-KcO"/>
                             <constraint firstItem="m1r-0b-7sA" firstAttribute="width" secondItem="wpP-t2-Say" secondAttribute="width" id="WGB-OV-MF1"/>
                             <constraint firstAttribute="width" secondItem="wpP-t2-Say" secondAttribute="width" multiplier="2.5" id="ZuN-yT-nXg"/>
                             <constraint firstItem="PTO-TH-Pw4" firstAttribute="top" secondItem="xKP-ea-cgJ" secondAttribute="bottom" constant="8" id="dh5-eV-aLK"/>
@@ -162,9 +162,12 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="centerLayoutConstraint" destination="PTs-EL-KcO" id="B5Y-9E-Tzq"/>
                         <outlet property="loginButton" destination="AAX-Uy-7UG" id="0VB-Yq-pAq"/>
                         <outlet property="loginStuff" destination="m1r-0b-7sA" id="O3G-No-lGB"/>
                         <outlet property="loginView" destination="RvN-MZ-bRD" id="HVz-ca-cjE"/>
+                        <outlet property="loginViewLeftConstraint" destination="0JO-jf-fXc" id="DCL-kn-kdU"/>
+                        <outlet property="loginViewRightConstraint" destination="xha-qH-u7Z" id="NNH-eK-joN"/>
                         <outlet property="logoImageView" destination="B0S-GP-rVP" id="PMx-mZ-y0G"/>
                         <outlet property="logoView" destination="wpP-t2-Say" id="JgZ-I9-bEQ"/>
                         <outlet property="passwordTextField" destination="6qx-Lr-sPN" id="qVT-z9-ew2"/>
