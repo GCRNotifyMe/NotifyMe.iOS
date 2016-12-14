@@ -27,7 +27,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpP-t2-Say">
                                 <rect key="frame" x="112.5" y="70" width="150" height="150.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Artboard 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="B0S-GP-rVP">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="B0S-GP-rVP">
                                         <rect key="frame" x="25" y="25" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="B0S-GP-rVP" secondAttribute="height" multiplier="1:1" id="jRr-0e-6rk"/>
@@ -534,7 +534,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Artboard 2.png" width="1025" height="1024"/>
+        <image name="Logo.png" width="1025" height="1024"/>
         <image name="lock.png" width="388" height="500"/>
         <image name="mail.png" width="500" height="376"/>
         <image name="username.png" width="500" height="502"/>

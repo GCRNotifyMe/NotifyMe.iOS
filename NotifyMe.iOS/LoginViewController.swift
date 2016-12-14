@@ -258,16 +258,19 @@ class LoginViewController: UIViewController {
                         
                         // Add an image for help about what the default device(s) are
                         // Should provide a popup text view to display the help
-                        let questionImage = UIButton()
-                        questionImage.frame.size = CGSize(width: 20, height: 20)
-                        questionImage.center.y = defaultSwitch.center.y
-                        questionImage.frame.origin.x = defaultLabel.frame.origin.x - 8 - questionImage.frame.width
+                        let questionButton = UIButton()
+                        questionButton.frame.size = CGSize(width: 16, height: 16)
+                        questionButton.center.y = defaultSwitch.center.y
+                        questionButton.frame.origin.x = defaultLabel.frame.origin.x - 8 - questionButton.frame.width
                         
-                        questionImage.backgroundColor = .red
+                        let questionImage = UIImage(named: "Question mark.png")?.withRenderingMode(.alwaysTemplate)
                         
-                        questionImage.addTarget(self, action: #selector(self.showDefaultDeviceHelp(_:)), for: .touchUpInside)
+                        questionButton.setImage(questionImage, for: [.normal])
+                        questionButton.tintColor = UIColor.white
                         
-                        nameView.addSubview(questionImage)
+                        questionButton.addTarget(self, action: #selector(self.showDefaultDeviceHelp(_:)), for: .touchUpInside)
+                        
+                        nameView.addSubview(questionButton)
                         
                         self.loginStuff.addSubview(nameView)
                         

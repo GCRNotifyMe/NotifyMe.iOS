@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16C48b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16C63a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,8 +26,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0IU-jC-jD3">
                                 <rect key="frame" x="124.33333333333331" y="285.33333333333331" width="165.33333333333337" height="165.33333333333337"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Artboard 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="tH0-EQ-cgB">
-                                        <rect key="frame" x="28.666666666666671" y="27.666666666666686" width="110.00000000000001" height="110"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="tH0-EQ-cgB">
+                                        <rect key="frame" x="27.666666666666671" y="27.666666666666686" width="110.00000000000001" height="110"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tH0-EQ-cgB" secondAttribute="height" multiplier="1:1" id="sWR-Cn-bCy"/>
                                         </constraints>
@@ -55,6 +55,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Artboard 2.png" width="1025" height="1024"/>
+        <image name="Logo.png" width="1025" height="1024"/>
     </resources>
 </document>

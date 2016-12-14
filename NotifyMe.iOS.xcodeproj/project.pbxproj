@@ -17,6 +17,7 @@
 		7C69ED3F1E00B0AE004B11F1 /* EasyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69ED3D1E00B0AE004B11F1 /* EasyTipView.swift */; };
 		7C69ED401E00B0AE004B11F1 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69ED3E1E00B0AE004B11F1 /* UIKitExtensions.swift */; };
 		7C69ED431E00B1ED004B11F1 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69ED421E00B1ED004B11F1 /* UIColorExtension.swift */; };
+		7C69ED471E01AB39004B11F1 /* Question mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C69ED461E01AB39004B11F1 /* Question mark.png */; };
 		7C7DB1F71DCA579700C1A485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */; };
 		7C7DB1F91DCA579700C1A485 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DB1F81DCA579700C1A485 /* ViewController.swift */; };
 		7C7DB1FC1DCA579700C1A485 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7DB1FA1DCA579700C1A485 /* Main.storyboard */; };
@@ -29,7 +30,7 @@
 		7CE0F6F91DF9F0F900979B7B /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F6F81DF9F0F900979B7B /* CreateAccountViewController.swift */; };
 		7CE0F6FB1DF9F86800979B7B /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */; };
 		7CE0F6FD1DF9FBF700979B7B /* DatabaseHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F6FC1DF9FBF700979B7B /* DatabaseHelpers.swift */; };
-		7CE0F6FF1DFB86A300979B7B /* Artboard 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE0F6FE1DFB86A300979B7B /* Artboard 2.png */; };
+		7CE0F6FF1DFB86A300979B7B /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE0F6FE1DFB86A300979B7B /* Logo.png */; };
 		7CE0F7011DFB906200979B7B /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0F7001DFB906200979B7B /* CALayerExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		7C69ED3D1E00B0AE004B11F1 /* EasyTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyTipView.swift; sourceTree = "<group>"; };
 		7C69ED3E1E00B0AE004B11F1 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		7C69ED421E00B1ED004B11F1 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		7C69ED461E01AB39004B11F1 /* Question mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Question mark.png"; sourceTree = "<group>"; };
 		7C7DB1F31DCA579700C1A485 /* NotifyMe.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotifyMe.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C7DB1F81DCA579700C1A485 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 		7CE0F6F81DF9F0F900979B7B /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
 		7CE0F6FC1DF9FBF700979B7B /* DatabaseHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelpers.swift; sourceTree = "<group>"; };
-		7CE0F6FE1DFB86A300979B7B /* Artboard 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 2.png"; sourceTree = "<group>"; };
+		7CE0F6FE1DFB86A300979B7B /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		7CE0F7001DFB906200979B7B /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,7 +159,8 @@
 				7C1065921DCA860D00C72E08 /* username.png */,
 				7C1065961DCA8B8500C72E08 /* mail.png */,
 				7C1065981DCA8BF200C72E08 /* lock.png */,
-				7CE0F6FE1DFB86A300979B7B /* Artboard 2.png */,
+				7CE0F6FE1DFB86A300979B7B /* Logo.png */,
+				7C69ED461E01AB39004B11F1 /* Question mark.png */,
 				7C7DB2001DCA579700C1A485 /* Assets.xcassets */,
 				7C7DB2021DCA579700C1A485 /* LaunchScreen.storyboard */,
 				7C7DB2051DCA579700C1A485 /* Info.plist */,
@@ -298,8 +301,9 @@
 				7C1065971DCA8B8500C72E08 /* mail.png in Resources */,
 				7C1065991DCA8BF200C72E08 /* lock.png in Resources */,
 				7C7DB2011DCA579700C1A485 /* Assets.xcassets in Resources */,
-				7CE0F6FF1DFB86A300979B7B /* Artboard 2.png in Resources */,
+				7CE0F6FF1DFB86A300979B7B /* Logo.png in Resources */,
 				7C69ED3C1DFFBCBB004B11F1 /* id card.png in Resources */,
+				7C69ED471E01AB39004B11F1 /* Question mark.png in Resources */,
 				7C7DB1FC1DCA579700C1A485 /* Main.storyboard in Resources */,
 				7C1065931DCA860D00C72E08 /* username.png in Resources */,
 			);
