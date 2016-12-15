@@ -21,6 +21,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: GCRTextField!
     @IBOutlet weak var centerLayoutConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var outputLabel: UILabel!
+    
     @IBOutlet weak var loginView: GCRView!
     @IBOutlet weak var loginViewLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginViewRightConstraint: NSLayoutConstraint!
@@ -53,6 +55,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Set text field delegates
         usernameTextField.delegate = self
         passwordTextField.delegate = self
+        
+        outputLabel.text = ""
+        outputLabel.numberOfLines = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -227,8 +232,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             if reply == "-1" {
                 // User has not verified their email
+                DispatchQueue.main.async {
+                    self.outputLabel.text = "Please use the email sent to you to verify your account."
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.view.layoutIfNeeded()
+                    })
+                }
             } else if reply == "-2" {
                 // User does not exist
+                DispatchQueue.main.async {
+                    self.outputLabel.text = "Your username/password are incorrect. Please try again."
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.view.layoutIfNeeded()
+                    })
+                }
             } else {
                 // Logged in
                 
@@ -294,6 +311,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         self.loginStuff.addSubview(nameView)
                         
                         self.loginButton.setTitle("Lets go!", for: [])
+                        self.loginButton.removeTarget(nil, action: nil, for: .allEvents)
+                        self.loginButton.addTarget(self, action: #selector(self.createDevice), for: .touchUpInside)
                         
                         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
                             self.loginViewLeftConstraint.constant -= self.view.frame.width
@@ -311,6 +330,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    func createDevice() {
+        dismissKeyboard()
+        
+        loginButton.setTitle("", for: [])
+        let activity = UIActivityIndicatorView()
+        activity.startAnimating()
+        activity.center = loginButton.frame.centerPoint
+        loginButton.addSubview(activity)
+        
+        self.view.isUserInteractionEnabled = false
     }
     
     @IBAction func createAccountButtonPushed(_ sender: Any) {

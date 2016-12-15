@@ -63,6 +63,7 @@
 		7C69ED3E1E00B0AE004B11F1 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		7C69ED421E00B1ED004B11F1 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		7C69ED461E01AB39004B11F1 /* Question mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Question mark.png"; sourceTree = "<group>"; };
+		7C69ED491E024DFC004B11F1 /* NotifyMe.iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotifyMe.iOS.entitlements; sourceTree = "<group>"; };
 		7C7DB1F31DCA579700C1A485 /* NotifyMe.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotifyMe.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C7DB1F81DCA579700C1A485 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 		7C7DB1F51DCA579700C1A485 /* NotifyMe.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				7C69ED491E024DFC004B11F1 /* NotifyMe.iOS.entitlements */,
 				7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */,
 				7C7DB1F81DCA579700C1A485 /* ViewController.swift */,
 				7C7DB1FA1DCA579700C1A485 /* Main.storyboard */,
@@ -265,6 +267,17 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 6YUP5Q2DLS;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 					7C7DB2091DCA579700C1A485 = {
 						CreatedOnToolsVersion = 8.1;
@@ -505,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NotifyMe.iOS/NotifyMe.iOS.entitlements;
 				DEVELOPMENT_TEAM = 6YUP5Q2DLS;
 				INFOPLIST_FILE = NotifyMe.iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -519,6 +533,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NotifyMe.iOS/NotifyMe.iOS.entitlements;
 				DEVELOPMENT_TEAM = 6YUP5Q2DLS;
 				INFOPLIST_FILE = NotifyMe.iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

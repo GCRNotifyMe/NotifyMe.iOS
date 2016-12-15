@@ -152,7 +152,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                         // Set ouput label attributes
                                         self.outputLabel.numberOfLines = 0
                                         self.outputLabel.text = errorText
-                                        self.outputLabel.frame.size.height = 0
+//                                        self.outputLabel.frame.size.height = 0
                                         
                                         // Listen for user interaction again
                                         self.textFieldsView.isUserInteractionEnabled = true
@@ -167,7 +167,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                         
                                         // Animate expanding output label
                                         UIView.animate(withDuration: 0.5) {
-                                            self.outputLabel.frame.size.height = 48
+//                                            self.outputLabel.frame.size.height = 48
+                                            self.view.layoutIfNeeded()
                                         }
                                     }
                                     
