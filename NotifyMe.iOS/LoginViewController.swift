@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var firstLoad = true
 
@@ -49,6 +49,10 @@ class LoginViewController: UIViewController {
         self.view.addGestureRecognizer(recognizer)
         
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        // Set text field delegates
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -175,6 +179,20 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // MARK: Text Field
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField === usernameTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField === passwordTextField {
+            loginButtonPushed(loginButton)
+        } else {
+            // Called from name device text field
+        }
+        
+        return true
+    }
+    
     // MARK: - Buttons
     
     @IBAction func loginButtonPushed(_ sender: Any) {
@@ -236,6 +254,7 @@ class LoginViewController: UIViewController {
                         textField.cornerRadius = 10
                         textField.placeholder = "Give this device a name"
                         textField.clipsToBounds = true
+                        textField.returnKeyType = .go
                         
                         nameView.addSubview(textField)
                         

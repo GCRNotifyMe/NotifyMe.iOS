@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateAccountViewController: UIViewController {
+class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textFieldsView: GCRView!
     @IBOutlet weak var emailTextField: GCRTextField!
@@ -27,6 +27,11 @@ class CreateAccountViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         outputLabel.text = ""
+        
+        emailTextField.delegate = self
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        passwordConfirmationTextField.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -177,6 +182,22 @@ class CreateAccountViewController: UIViewController {
     
     func dismissKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    // MARK: Text Fields
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField === emailTextField {
+            usernameTextField.becomeFirstResponder()
+        } else if textField === usernameTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField === passwordTextField {
+            passwordConfirmationTextField.becomeFirstResponder()
+        } else if textField === passwordConfirmationTextField {
+            createButtonPushed(createAccountButton)
+        }
+        
+        return true
     }
     
     /*
