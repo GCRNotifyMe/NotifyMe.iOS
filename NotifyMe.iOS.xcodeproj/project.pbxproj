@@ -18,6 +18,7 @@
 		7C69ED401E00B0AE004B11F1 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69ED3E1E00B0AE004B11F1 /* UIKitExtensions.swift */; };
 		7C69ED431E00B1ED004B11F1 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69ED421E00B1ED004B11F1 /* UIColorExtension.swift */; };
 		7C69ED471E01AB39004B11F1 /* Question mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C69ED461E01AB39004B11F1 /* Question mark.png */; };
+		7C69ED4B1E0C2BFD004B11F1 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69ED4A1E0C2BFD004B11F1 /* UIDeviceExtension.swift */; };
 		7C7DB1F71DCA579700C1A485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */; };
 		7C7DB1F91DCA579700C1A485 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DB1F81DCA579700C1A485 /* ViewController.swift */; };
 		7C7DB1FC1DCA579700C1A485 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7DB1FA1DCA579700C1A485 /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		7C69ED421E00B1ED004B11F1 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		7C69ED461E01AB39004B11F1 /* Question mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Question mark.png"; sourceTree = "<group>"; };
 		7C69ED491E024DFC004B11F1 /* NotifyMe.iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotifyMe.iOS.entitlements; sourceTree = "<group>"; };
+		7C69ED4A1E0C2BFD004B11F1 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDeviceExtension.swift; path = ../UIDeviceExtension.swift; sourceTree = "<group>"; };
 		7C7DB1F31DCA579700C1A485 /* NotifyMe.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotifyMe.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7DB1F61DCA579700C1A485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C7DB1F81DCA579700C1A485 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				7CE0F6FA1DF9F86800979B7B /* CGRectExtension.swift */,
 				7CE0F7001DFB906200979B7B /* CALayerExtension.swift */,
 				7C69ED421E00B1ED004B11F1 /* UIColorExtension.swift */,
+				7C69ED4A1E0C2BFD004B11F1 /* UIDeviceExtension.swift */,
 				7C69ED411E00B0B8004B11F1 /* EasyTipView */,
 				7C69ED481E024519004B11F1 /* Images */,
 				7C7DB2001DCA579700C1A485 /* Assets.xcassets */,
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C69ED4B1E0C2BFD004B11F1 /* UIDeviceExtension.swift in Sources */,
 				7CCC81941DF8E10A00B9B4BF /* LoginViewController.swift in Sources */,
 				7C69ED431E00B1ED004B11F1 /* UIColorExtension.swift in Sources */,
 				7C10659B1DCA8D5D00C72E08 /* GCRButton.swift in Sources */,

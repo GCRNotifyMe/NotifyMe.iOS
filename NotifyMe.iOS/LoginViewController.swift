@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -29,6 +30,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: GCRButton!
     
     @IBOutlet weak var createAccountButton: UIButton!
+    
+    var deviceNameTextField: GCRTextField?
     
     var defaultEasyTip: EasyTipView?
     // Also used with shrinking the logo
@@ -273,6 +276,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         textField.clipsToBounds = true
                         textField.returnKeyType = .go
                         
+                        self.deviceNameTextField = textField
+                        
                         nameView.addSubview(textField)
                         
                         let defaultSwitch = UISwitch()
@@ -335,6 +340,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func createDevice() {
         dismissKeyboard()
         
+        (UIApplication.shared.delegate as! AppDelegate).deviceName = deviceNameTextField?.text
+        
         loginButton.setTitle("", for: [])
         let activity = UIActivityIndicatorView()
         activity.startAnimating()
@@ -342,6 +349,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.addSubview(activity)
         
         self.view.isUserInteractionEnabled = false
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+            if granted {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
     }
     
     @IBAction func createAccountButtonPushed(_ sender: Any) {
@@ -377,8 +391,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func unwindToLoginView(segue: UIStoryboardSegue) {
         
     }
-    
-    
 
     /*
     // MARK: - Navigation

@@ -6,7 +6,7 @@
 //  Copyright © 2016 ReVoltApplications. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Database {
     let webURL = URL(string: "https://box448.bluehost.com/~revoltap/notifyme/phpapi")!
@@ -27,6 +27,18 @@ class Database {
                         "deviceID" : deviceID]
         
         makePHPRequest(post: postData, onPage: "Login.php") { (data, response, error) in
+            completionHandler(data, response, error)
+        }
+    }
+    
+    func registerDevice(deviceID: String, userID: String, deviceName: String, defaultDevice: Bool, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+        let postData = ["source" : UIDevice.current.modelName,
+                        "deviceID" : deviceID,
+                        "deviceName" : deviceName,
+                        "defaultDevice" : defaultDevice ? "0" : "1",
+                        "userID" : userID]
+        
+        makePHPRequest(post: postData, onPage: "RegisterDevice.php") { (data, response, error) in
             completionHandler(data, response, error)
         }
     }
