@@ -35,7 +35,7 @@ class Database {
         let postData = ["source" : UIDevice.current.modelName,
                         "deviceID" : deviceID,
                         "deviceName" : deviceName,
-                        "defaultDevice" : defaultDevice ? "0" : "1",
+                        "defaultDevice" : defaultDevice ? "1" : "0",
                         "userID" : userID]
         
         makePHPRequest(post: postData, onPage: "RegisterDevice.php") { (data, response, error) in
@@ -55,9 +55,10 @@ class Database {
         
         var d = ""
         var sent = ""
+        let customAllowedSet =  NSCharacterSet(charactersIn:"=\"#%/<>?@\\^`{|}+").inverted
         
         for key in post.keys {
-            d = "\(d)\(sent)\(key)=\(post[key]!)"
+            d = "\(d)\(sent)\(key)=\(post[key]!.addingPercentEncoding(withAllowedCharacters: customAllowedSet)!)"
             sent = "&"
         }
         

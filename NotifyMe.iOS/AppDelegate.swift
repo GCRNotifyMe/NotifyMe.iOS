@@ -13,7 +13,11 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var userID: String?
+    
     var deviceName: String?
+    var deviceDefault: Bool?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -91,7 +95,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // Registered successfully
-        Database()
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        
+        print(userID)
+        
+        Database().registerDevice(deviceID: deviceTokenString, userID: userID!, deviceName: deviceName!, defaultDevice: deviceDefault!) { (data, response, error) in
+            print("Registered....")
+            print(String(data: data!, encoding: .utf8))
+        }
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

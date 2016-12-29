@@ -34,6 +34,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var deviceNameTextField: GCRTextField?
     
     var defaultEasyTip: EasyTipView?
+    var defaultDeviceSwitch: UISwitch?
     // Also used with shrinking the logo
 //    var logoViewInitialSize: CGSize!
 //    var logoViewInitialOrigin: CGPoint!
@@ -255,6 +256,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 // Parse the return. Multiple lines means we have a device name for this device.
                 let items = reply!.components(separatedBy: "\n")
                 
+                (UIApplication.shared.delegate as! AppDelegate).userID = items[0]
+                print("User ID encrypted is: \(items[0])")
+                
                 if items.count == 1 {
                     // Display a field to enter the device name
                     DispatchQueue.main.async {
@@ -284,6 +288,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         defaultSwitch.frame.origin.x = nameView.frame.width - defaultSwitch.frame.width
                         defaultSwitch.frame.origin.y = nameView.frame.height - defaultSwitch.frame.height
                         defaultSwitch.isOn = false
+                        
+                        self.defaultDeviceSwitch = defaultSwitch
                         
                         nameView.addSubview(defaultSwitch)
                         
@@ -340,7 +346,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func createDevice() {
         dismissKeyboard()
         
+        // Check device name field for length > 0
         (UIApplication.shared.delegate as! AppDelegate).deviceName = deviceNameTextField?.text
+        (UIApplication.shared.delegate as! AppDelegate).deviceDefault = defaultDeviceSwitch?.isOn
         
         loginButton.setTitle("", for: [])
         let activity = UIActivityIndicatorView()
