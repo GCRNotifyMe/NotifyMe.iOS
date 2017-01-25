@@ -21,10 +21,9 @@ class Database {
         }
     }
     
-    func login(username: String, password: String, deviceID: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+    func login(username: String, password: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
         let postData = ["username" : username,
-                        "password" : password,
-                        "deviceID" : deviceID]
+                        "password" : password]
         
         makePHPRequest(post: postData, onPage: "Login.php") { (data, response, error) in
             completionHandler(data, response, error)
@@ -39,6 +38,15 @@ class Database {
                         "userID" : userID]
         
         makePHPRequest(post: postData, onPage: "RegisterDevice.php") { (data, response, error) in
+            completionHandler(data, response, error)
+        }
+    }
+    
+    func checkDevice(deviceID: String, userID: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+        let postData = ["deviceID" : deviceID,
+                        "userID" : userID]
+        
+        makePHPRequest(post: postData, onPage: "CheckDevice.php") { (data, response, error) in
             completionHandler(data, response, error)
         }
     }

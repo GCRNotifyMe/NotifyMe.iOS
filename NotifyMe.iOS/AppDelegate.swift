@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var deviceName: String?
     var deviceDefault: Bool?
+    
+    var registeredCompletion: ((String) -> Void)? = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -97,12 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Registered successfully
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         
-        print(userID)
-        
-        Database().registerDevice(deviceID: deviceTokenString, userID: userID!, deviceName: deviceName!, defaultDevice: deviceDefault!) { (data, response, error) in
-            print("Registered....")
-            print(String(data: data!, encoding: .utf8))
-        }
+        registeredCompletion!(deviceTokenString)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

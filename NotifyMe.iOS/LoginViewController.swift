@@ -12,6 +12,8 @@ import UserNotifications
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var firstLoad = true
+    
+    let delegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var logoView: UIView!
     @IBOutlet weak var logoImageView: UIImageView!
@@ -205,9 +207,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Buttons
     
     @IBAction func loginButtonPushed(_ sender: Any) {
-        let defaults = UserDefaults()
-        let id = defaults.string(forKey: "DEVICEID") ?? ""
-        
         dismissKeyboard()
         
         loginButton.setTitle("", for: [])
@@ -218,7 +217,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.view.isUserInteractionEnabled = false
         
-        Database().login(username: usernameTextField.text!, password: passwordTextField.text!, deviceID: id) { (data, response, error) in
+        Database().login(username: usernameTextField.text!, password: passwordTextField.text!) { (data, response, error) in
             DispatchQueue.main.async {
                 self.view.isUserInteractionEnabled = true
                 
@@ -254,90 +253,47 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 // Logged in
                 
                 // Parse the return. Multiple lines means we have a device name for this device.
-                let items = reply!.components(separatedBy: "\n")
+//                let items = reply!.components(separatedBy: "\n")
                 
-                (UIApplication.shared.delegate as! AppDelegate).userID = items[0]
-                print("User ID encrypted is: \(items[0])")
+                self.delegate.userID = reply
+                print("User ID encrypted is: \(reply)")
                 
-                if items.count == 1 {
+//                if items.count == 1 {
+                if !UIApplication.shared.isRegisteredForRemoteNotifications {
                     // Display a field to enter the device name
                     DispatchQueue.main.async {
-                        self.createAccountButton.alpha = 0
-                        self.createAccountButton.isUserInteractionEnabled = false
-                        
-                        var origin = self.loginView.frame.origin
-                        origin.x += self.view.frame.width
-                        
-                        let size = self.loginView.frame.size
-                        
-                        let nameView = UIView(frame: CGRect(origin: origin, size: size))
-                        
-                        let textField = GCRTextField(frame: CGRect(x: 0, y: 0, width: nameView.frame.width, height: 41))
-                        textField.backgroundColor = UIColor.white
-                        textField.leftImage = UIImage(named: "id card.png")!
-                        textField.cornerRadius = 10
-                        textField.placeholder = "Give this device a name"
-                        textField.clipsToBounds = true
-                        textField.returnKeyType = .go
-                        
-                        self.deviceNameTextField = textField
-                        
-                        nameView.addSubview(textField)
-                        
-                        let defaultSwitch = UISwitch()
-                        defaultSwitch.frame.origin.x = nameView.frame.width - defaultSwitch.frame.width
-                        defaultSwitch.frame.origin.y = nameView.frame.height - defaultSwitch.frame.height
-                        defaultSwitch.isOn = false
-                        
-                        self.defaultDeviceSwitch = defaultSwitch
-                        
-                        nameView.addSubview(defaultSwitch)
-                        
-                        let defaultLabel = UILabel()
-                        defaultLabel.font = UIFont(name: "Avenir Next", size: 17)!
-                        defaultLabel.textColor = .white
-                        defaultLabel.text = "Default device:"
-                        defaultLabel.sizeToFit()
-                        defaultLabel.center = defaultSwitch.center
-                        defaultLabel.frame.origin.x = defaultSwitch.frame.origin.x - 8 - defaultLabel.frame.width
-                        
-                        nameView.addSubview(defaultLabel)
-                        
-                        // Add an image for help about what the default device(s) are
-                        // Should provide a popup text view to display the help
-                        let questionButton = UIButton()
-                        questionButton.frame.size = CGSize(width: 16, height: 16)
-                        questionButton.center.y = defaultSwitch.center.y
-                        questionButton.frame.origin.x = defaultLabel.frame.origin.x - 8 - questionButton.frame.width
-                        
-                        let questionImage = UIImage(named: "Question mark.png")?.withRenderingMode(.alwaysTemplate)
-                        
-                        questionButton.setImage(questionImage, for: [.normal])
-                        questionButton.tintColor = UIColor.white
-                        
-                        questionButton.addTarget(self, action: #selector(self.showDefaultDeviceHelp(_:)), for: .touchUpInside)
-                        
-                        nameView.addSubview(questionButton)
-                        
-                        self.loginStuff.addSubview(nameView)
-                        
-                        self.loginButton.setTitle("Lets go!", for: [])
-                        self.loginButton.removeTarget(nil, action: nil, for: .allEvents)
-                        self.loginButton.addTarget(self, action: #selector(self.createDevice), for: .touchUpInside)
-                        
-                        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-                            self.loginViewLeftConstraint.constant -= self.view.frame.width
-                            self.loginViewRightConstraint.constant += self.view.frame.width
-                            self.view.layoutIfNeeded()
-                            
-                            nameView.frame.origin.x -= self.view.frame.width
-                        }, completion: { (completed) in
-                            self.loginView.alpha = 0
-                        })
+                        // Display the view to name the current device
+                        self.nameDeviceDisplay()
                     }
                     
                 } else {
-                    // We already have a device name!
+                    // We are already registered for push notifications!
+                    // We're gonna re register to get the device token
+                    // Then we can check the database for that token
+                    // If, somehow, the token doesnt exist on the DB
+                    // we register the device
+                    self.delegate.registeredCompletion = { deviceID in
+                        // Check regristration
+                        Database().checkDevice(deviceID: deviceID, userID: self.delegate.userID!, completionHandler: { (data, response, error) in
+                            // Returns 0 if device exists, and -1 if it doesn't
+                            var reply: String? = nil
+                            
+                            if data != nil {
+                                reply = String(data: data!, encoding: .utf8)
+                            }
+                            
+                            if reply == "0" {
+                                // Yay! Got a device
+                                // Segue to get the next view
+                            } else {
+                                // :(
+                                // Register the device
+                                DispatchQueue.main.async {
+                                    self.nameDeviceDisplay()
+                                }
+                            }
+                        })
+                    }
                 }
             }
         }
@@ -347,8 +303,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         dismissKeyboard()
         
         // Check device name field for length > 0
-        (UIApplication.shared.delegate as! AppDelegate).deviceName = deviceNameTextField?.text
-        (UIApplication.shared.delegate as! AppDelegate).deviceDefault = defaultDeviceSwitch?.isOn
+        delegate.deviceName = deviceNameTextField?.text
+        delegate.deviceDefault = defaultDeviceSwitch?.isOn
         
         loginButton.setTitle("", for: [])
         let activity = UIActivityIndicatorView()
@@ -358,12 +314,97 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.view.isUserInteractionEnabled = false
         
+        delegate.registeredCompletion = { deviceID in
+            Database().registerDevice(deviceID: deviceID, userID: self.delegate.userID!, deviceName: self.deviceNameTextField!.text!, defaultDevice: self.defaultDeviceSwitch!.isOn) { (data, response, error) in
+                print("Registered....")
+                print(String(data: data!, encoding: .utf8))
+                
+                // Device registered
+                // Segue to the new view
+            }
+        }
+        
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
             if granted {
                 UIApplication.shared.registerForRemoteNotifications()
             }
         }
+    }
+    
+    func nameDeviceDisplay() {
+        self.createAccountButton.alpha = 0
+        self.createAccountButton.isUserInteractionEnabled = false
+        
+        var origin = self.loginView.frame.origin
+        origin.x += self.view.frame.width
+        
+        let size = self.loginView.frame.size
+        
+        let nameView = UIView(frame: CGRect(origin: origin, size: size))
+        
+        let textField = GCRTextField(frame: CGRect(x: 0, y: 0, width: nameView.frame.width, height: 41))
+        textField.backgroundColor = UIColor.white
+        textField.leftImage = UIImage(named: "id card.png")!
+        textField.cornerRadius = 10
+        textField.placeholder = "Give this device a name"
+        textField.clipsToBounds = true
+        textField.returnKeyType = .go
+        
+        self.deviceNameTextField = textField
+        
+        nameView.addSubview(textField)
+        
+        let defaultSwitch = UISwitch()
+        defaultSwitch.frame.origin.x = nameView.frame.width - defaultSwitch.frame.width
+        defaultSwitch.frame.origin.y = nameView.frame.height - defaultSwitch.frame.height
+        defaultSwitch.isOn = false
+        
+        self.defaultDeviceSwitch = defaultSwitch
+        
+        nameView.addSubview(defaultSwitch)
+        
+        let defaultLabel = UILabel()
+        defaultLabel.font = UIFont(name: "Avenir Next", size: 17)!
+        defaultLabel.textColor = .white
+        defaultLabel.text = "Default device:"
+        defaultLabel.sizeToFit()
+        defaultLabel.center = defaultSwitch.center
+        defaultLabel.frame.origin.x = defaultSwitch.frame.origin.x - 8 - defaultLabel.frame.width
+        
+        nameView.addSubview(defaultLabel)
+        
+        // Add an image for help about what the default device(s) are
+        // Should provide a popup text view to display the help
+        let questionButton = UIButton()
+        questionButton.frame.size = CGSize(width: 16, height: 16)
+        questionButton.center.y = defaultSwitch.center.y
+        questionButton.frame.origin.x = defaultLabel.frame.origin.x - 8 - questionButton.frame.width
+        
+        let questionImage = UIImage(named: "Question mark.png")?.withRenderingMode(.alwaysTemplate)
+        
+        questionButton.setImage(questionImage, for: [.normal])
+        questionButton.tintColor = UIColor.white
+        
+        questionButton.addTarget(self, action: #selector(self.showDefaultDeviceHelp(_:)), for: .touchUpInside)
+        
+        nameView.addSubview(questionButton)
+        
+        self.loginStuff.addSubview(nameView)
+        
+        self.loginButton.setTitle("Lets go!", for: [])
+        self.loginButton.removeTarget(nil, action: nil, for: .allEvents)
+        self.loginButton.addTarget(self, action: #selector(self.createDevice), for: .touchUpInside)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+            self.loginViewLeftConstraint.constant -= self.view.frame.width
+            self.loginViewRightConstraint.constant += self.view.frame.width
+            self.view.layoutIfNeeded()
+            
+            nameView.frame.origin.x -= self.view.frame.width
+        }, completion: { (completed) in
+            self.loginView.alpha = 0
+        })
     }
     
     @IBAction func createAccountButtonPushed(_ sender: Any) {
