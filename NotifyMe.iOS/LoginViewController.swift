@@ -261,12 +261,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //                if items.count == 1 {
                 if !UIApplication.shared.isRegisteredForRemoteNotifications {
                     // Display a field to enter the device name
+                    print("Not registerd for push notifications.")
                     DispatchQueue.main.async {
                         // Display the view to name the current device
                         self.nameDeviceDisplay()
                     }
                     
                 } else {
+                    print("Registered for push notifications. Need to check server.")
                     // We are already registered for push notifications!
                     // We're gonna re register to get the device token
                     // Then we can check the database for that token
@@ -285,6 +287,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             if reply == "0" {
                                 // Yay! Got a device
                                 // Segue to get the next view
+                                self.segueToNotificationList()
                             } else {
                                 // :(
                                 // Register the device
@@ -293,6 +296,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 }
                             }
                         })
+                    }
+                    
+                    let center = UNUserNotificationCenter.current()
+                    center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+                        if granted {
+                            UIApplication.shared.registerForRemoteNotifications()
+                        }
                     }
                 }
             }
@@ -321,6 +331,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 // Device registered
                 // Segue to the new view
+                self.segueToNotificationList()
             }
         }
         
@@ -436,6 +447,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Navigation
+    
+    func segueToNotificationList() {
+        DispatchQueue.main.async {
+            // Call should be made from main queue. Just in case
+            print("Seguing to the next view...")
+        }
+    }
     
     @IBAction func unwindToLoginView(segue: UIStoryboardSegue) {
         
